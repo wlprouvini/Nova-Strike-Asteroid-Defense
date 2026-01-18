@@ -6,7 +6,7 @@
   "description": "Defenda a galáxia de um campo infinito de asteroides neste shooter espacial retrô.",
   "start_url": "/",
   "scope": "/",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "landscape",
   "background_color": "#000000",
   "theme_color": "#3b82f6",
@@ -45,5 +45,10 @@
       "form_factor": "narrow",
       "label": "Combate em qualquer lugar"
     }
+  ],
+  "display_override": [
+    "window-controls-overlay",
+    "browser",
+    "fullscreen"
   ]
 }
