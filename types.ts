@@ -12,18 +12,32 @@ export interface Entity {
 }
 
 export interface Ship extends Entity {
+  id: number;
   thrusting: boolean;
   lives: number;
-  invulnerable: number; // frames remaining
+  invulnerable: number;
+  score: number;
+  color: string;
 }
 
 export interface Bullet extends Entity {
-  life: number; // frames until expiry
+  ownerId: number;
+  life: number;
+}
+
+export interface MapConfig {
+  id: string;
+  name: string;
+  description: string;
+  asteroidSpeedMult: number;
+  asteroidSizeMult: number;
+  color: string;
+  bgColor: string;
 }
 
 export interface Asteroid extends Entity {
   size: 'large' | 'medium' | 'small';
-  vertices: number[]; // random offsets for irregular shape
+  vertices: number[];
 }
 
 export interface Particle {
@@ -35,6 +49,7 @@ export interface Particle {
 
 export enum GameState {
   MENU = 'MENU',
+  LOBBY = 'LOBBY',
   PLAYING = 'PLAYING',
   GAMEOVER = 'GAMEOVER',
   PAUSED = 'PAUSED'
@@ -45,6 +60,8 @@ export interface GameStatus {
   level: number;
   highScore: number;
   state: GameState;
+  isMultiplayer: boolean;
+  selectedMap: string;
 }
 
 export interface PilotAdvice {
